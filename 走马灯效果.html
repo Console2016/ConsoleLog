@@ -1,0 +1,102 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>文本框走动跑马灯代码</title>
+</head>
+
+<script src="jquery-1.9.1.min.js"></script>
+<script src="index.js"></script>
+
+
+<SCRIPT Language="JavaScript">
+ 
+var msg="欢迎访问脚本之家 www.jb51.net";
+var interval = 200;
+var space10="          ";
+var seq=0;
+ 
+function Scroll() {
+document.tmForm.tmText.value = msg.substring(seq, msg.length) + space10 + msg.substring(0, msg.length);
+seq++;seq++;
+if ( seq > msg.length ) { seq = 0 };
+window.setTimeout("Scroll();", interval );
+} 
+
+
+
+
+var scrollLength = 7;
+
+var initScroll = function(obj){
+	obj=document.getElementsByClassName("StatusAnaly")[0].parentElement;
+	if(obj.innerText.length <= scrollLength){
+		obj.stop();
+	}
+}
+var startScroll = function(obj){
+    if(obj.innerText.length >scrollLength){
+        obj.start();
+    }
+}
+var stopScroll = function(obj){
+    if(obj.innerText.length >scrollLength){
+        obj.stop();
+    }
+}
+//initScroll(document.getElementsByClassName("StatusAnaly")[0].parentElement);
+ 
+ 
+ $(document.body).ready(function(){ 
+ console.log("start");
+$("#RunTopic").RollTitle({line:1,speed:200,timespan:1500}); 
+}); 
+ 
+</SCRIPT>
+ 
+<BODY OnLoad="Scroll();" >
+ 
+<CENTER><FORM Name=tmForm>
+<INPUT Type=Text Name=tmText Size=15>
+</FORM></CENTER>
+ 
+ 
+ <!-- <marquee id="affiche" align="left" behavior="scroll" bgcolor="#FF0000" direction="up" height="300" width="200" hspace="50" vspace="20" loop="-1" scrollamount="10" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()">
+这是一个完整的例子
+</marquee> -->
+
+ <!-- <marquee behavior="scroll" contenteditable="true" onstart="this.firstChild.innerHTML+=this.firstChild.innerHTML;" scrollamount="3" width="100" onmouseover="this.stop();" onmouseout="this.start();"> 
+这里是要滚动的内容 
+</marquee>-->
+ 
+ 
+  <!--<table width="500" border="1" align="center" cellpadding="0" cellspacing="0">
+
+        <tr>
+
+          <td><marquee hspace="100" bgcolor="#CCCCCC">hspace="100"</marquee></td>
+
+        </tr>
+
+      </table>-->
+	  
+	  
+	  <!--<div style="text-align:center; width:200px;">
+	     <marquee behavior="scroll" hspace="0"  isContentEditable=false hspace=20，vspace=20
+			style="text-align:left;" offsetLeft="0" width="220" scrollamount="4" 
+			onmouseover="stopScroll(this)" onmouseout="startScroll(this)" onmouseclick>
+			<span class="StatusAnaly" style="margin-left:-20px;">啊呀妈妈</span>
+		</marquee>
+	  </div>
+	  <button onclick="initScroll()">停止</button>-->
+	  
+	  
+	  
+	  <ul id="RunTopic"> 
+<li>文字1</li> 
+<li>文字2</li> 
+<li>文字3</li> 
+<li>文字4</li> 
+<li>文字5</li> 
+</ul> 
+<body>
+</body>
+</html>
